@@ -1,4 +1,6 @@
-# Wyoming Faster Whisper
+# IGNORE THIS PLEASE, JUST TRYING AROUND
+
+⚠️ WARNING: This is a personal fork and is not maintained or supported.
 
 [Wyoming protocol](https://github.com/rhasspy/wyoming) server for the [faster-whisper](https://github.com/guillaumekln/faster-whisper/) speech to text system.
 
