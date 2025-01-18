@@ -60,7 +60,7 @@ class FasterWhisperEventHandler(AsyncEventHandler):
 
             self._wav_file.close()
             self._wav_file = None
-            decode_options=dict(language="it")
+            decode_options=dict(language=self._language)
 
             async with self.model_lock:
                 # Let transcribe() handle model loading via path_or_hf_repo
