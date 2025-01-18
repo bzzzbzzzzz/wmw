@@ -2,11 +2,7 @@
 
 ⚠️ WARNING: This is a personal fork and is not maintained or supported.
 
-[Wyoming protocol](https://github.com/rhasspy/wyoming) server for the [faster-whisper](https://github.com/guillaumekln/faster-whisper/) speech to text system.
-
-## Home Assistant Add-on
-
-[![Show add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_whisper)
+[Wyoming protocol](https://github.com/rhasspy/wyoming) server for the [mlx-whisper](https://github.com/ml-explore/mlx-examples/tree/main/whisper) speech to text system, forked from [wyoming-faster-whisper](https://github.com/rhasspy/wyoming-faster-whisper).
 
 [Source](https://github.com/home-assistant/addons/tree/master/whisper)
 
@@ -15,7 +11,7 @@
 Clone the repository and set up Python virtual environment:
 
 ``` sh
-git clone https://github.com/rhasspy/wyoming-faster-whisper.git
+git clone https://github.com/raelix/wyoming-faster-whisper.git
 cd wyoming-faster-whisper
 script/setup
 ```
@@ -23,19 +19,10 @@ script/setup
 Run a server anyone can connect to:
 
 ```sh
-script/run --model tiny-int8 --language en --uri 'tcp://0.0.0.0:10300' --data-dir /data --download-dir /data
+./script/run --model "mlx-community/whisper-large-v3-mlx" --language en --uri 'tcp://0.0.0.0:10300'
 ```
 
-The `--model` can also be a HuggingFace model like `Systran/faster-distil-whisper-small.en`
+The `--model` can also be a HuggingFace model like `mlx-community/whisper-medium.en-mlx` or `mlx-community/whisper-large-v3-turbo`.
 
-## Docker Image
-
-``` sh
-docker run -it -p 10300:10300 -v /path/to/local/data:/data rhasspy/wyoming-whisper \
-    --model tiny-int8 --language en
-```
-
-**NOTE**: Models are downloaded temporarily to the `HF_HUB_CACHE` directory, which defaults to `~/.cache/huggingface/hub`.
-You may need to adjust this environment variable when using a read-only root filesystem (e.g., `HF_HUB_CACHE=/tmp`).
 
 [Source](https://github.com/rhasspy/wyoming-addons/tree/master/whisper)
